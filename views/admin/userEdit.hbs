@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <div class="p-3 col-md-9 col-lg-4">
+        <div class="d-flex justify-content-center">
+            <h2 class="pb-3">Edit user</h2>
+        </div>
+        <form action="/admin/adminlogin/updateUser/{{datas._id}}" method="post">
+
+            <!-- Name field -->
+            <div class="form-outline mb-3">
+                <input type="text" id="form2Example2" name="Name" class="form-control" placeholder="Enter name" value="{{datas.Name}}" required />
+                {{!-- <label class="form-label d-flex justify-content-center pt-2" for="form2Example2">Name</label> --}}
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-3">
+                <input type="email" id="form2Example1" class="form-control" name="Email" placeholder="Enter email" value="{{datas.Email}}" required />
+                {{!-- <label class="form-label d-flex justify-content-center pt-2" for="form2Example1">Email address</label> --}}
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+                <input type="password" id="form2Example2" class="form-control" name="Password" placeholder="Enter password" value="{{datas.Password}}" required />
+                {{!-- <label class="form-label d-flex justify-content-center pt-2" for="form2Example2">Password</label> --}}
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+        </form>
+    </div>
+</div>

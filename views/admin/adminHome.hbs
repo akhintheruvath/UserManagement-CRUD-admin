@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top pb-3">
+  <h3 class="text-primary mt-3">This is admin's page</h3>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <form action="/admin/userSearch" method="post">
+        <div class="container col-md-12 text-center">
+            <input class="py-1" type="text" name="search" placeholder="Search here" required>
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form><br>
+
+    <form action="/admin/adminlogin/addUser" method="get">
+        <a class="row justify-content-center mx-5"><button type="submit"
+                class="btn btn-success text-decoration-none">Add user</button></a>
+    </form>
+
+    <form action="/admin/adminLogout" method="post">
+        <a><button type="submit"
+                class="btn btn-danger text-decoration-none">Logout</button></a>
+    </form>
+  </div>
+</nav>
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {{!-- <th>No</th> --}}
+                <th>Name of user</th>
+                <th>Email address</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                {{!-- <td>{{@index}}</td> --}}
+                <td>{{this.Name}}</td>
+                <td>{{this.Email}}</td>
+                <td>
+                    <form action="/admin/userEdit/{{this._id}}" method="get">
+                        <button class="btn btn-primary bg-primary" type="submit" name="update">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/admin/userDelete/{{this._id}}" method="post">
+                        <button class="btn btn-primary bg-danger"
+                            onclick=" return confirm('Are you sure, do you want to delete?')" type="submit"
+                            name="Delete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
